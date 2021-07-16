@@ -17,7 +17,7 @@ module.exports = {
         })
         .then(data => {
             subCount = data['items'][0].statistics.subscriberCount;
-            message.channel.send(`${process.env.channelName} has ${process.env.subCount} subscribers!`);
+            message.channel.send(`${process.env.channelName} has ${subCount} subscribers!`);
         })
     }
 }
