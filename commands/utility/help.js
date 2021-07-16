@@ -1,4 +1,4 @@
-const { prefix } = require('../../config.json').bot;
+//const { prefix } = require('../../config.json').bot;
 
 module.exports = {
     name: 'help',
@@ -10,7 +10,7 @@ module.exports = {
         if (!args.length) {
             data.push('Here\'s a list of my available commands:');
             data.push(commands.map(command => command.name).join(', '));
-            data.push(`You can type \`${prefix}help [command name]\` to get more info on a certain command.`)
+            data.push(`You can type \`${process.env.prefix}help [command name]\` to get more info on a certain command.`)
 
             return message.author.send(data, { split: true })
                 .then(() => {
@@ -33,7 +33,7 @@ module.exports = {
         data.push(`**Name:** ${command.name}`);
         if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         if (command.description) data.push(`**Description:** ${command.description}`);
-        if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+        if (command.usage) data.push(`**Usage:** ${process.env.prefix}${command.name} ${command.usage}`);
 
         message.channel.send(data, { split:true });
     }

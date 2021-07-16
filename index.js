@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { token, prefix } = require('./config.json').bot;
+//const { token, prefix } = require('./config.json').bot;
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -21,9 +21,9 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!message.content.startsWith(process.env.prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const args = message.content.slice(process.env.prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
 
     const command = client.commands.get(commandName)
@@ -60,4 +60,4 @@ client.on('message', message => {
     }
 });
 
-client.login(token);
+client.login(process.env.token);

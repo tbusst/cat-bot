@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { icon } = require('../../config.json').bot;
+//const { icon } = require('../../config.json').bot;
 
 module.exports = {
     name: 'avatar',
@@ -9,7 +9,7 @@ module.exports = {
         const mentions = message.mentions.users;
         const avatarEmbed = new Discord.MessageEmbed()
             .setTimestamp()
-            .setFooter('Catbot', icon)
+            .setFooter('Catbot', process.env.icon)
 
         if (!mentions.size) {
             avatarEmbed.setImage(message.author.displayAvatarURL({dynamic: true}));

@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-let { youtubeKey, channelID, channelName } = require('../../config.json').youtube;
+//const { youtubeKey, channelID, channelName } = require('../../config.json').youtube;
 
 module.exports = {
     name: 'subscribers',
@@ -9,15 +9,15 @@ module.exports = {
     execute(message) {
         let subCount;
 
-        console.log(channelID);
+        console.log(process.env.channelID);
 
-        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelID}&key=${youtubeKey}`)
+        fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${process.env.channelID}&key=${process.env.youtubeKey}`)
         .then(response => {
             return response.json();
         })
         .then(data => {
             subCount = data['items'][0].statistics.subscriberCount;
-            message.channel.send(`${channelName} has ${subCount} subscribers!`);
+            message.channel.send(`${process.env.channelName} has ${process.env.subCount} subscribers!`);
         })
     }
 }
