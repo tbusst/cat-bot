@@ -9,8 +9,6 @@ module.exports = {
     execute(message) {
         let subCount;
 
-        console.log(process.env.channelID);
-
         fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${process.env.channelID}&key=${process.env.youtubeKey}`)
         .then(response => {
             return response.json();
