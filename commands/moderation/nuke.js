@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'nuke',
-    description: 'Deletes an specified amount of messages.',
+    description: 'Deletes a specified amount of messages.',
     args: true,
     usage: '<amount>',
     aliases: ['purge', 'bulkdelete'],
