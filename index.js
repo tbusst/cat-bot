@@ -22,7 +22,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
     //delete latter
-    if (message.channel.id == process.env.id) return;
+    if (!message.channel.id == process.env.id) return;
 
     if (!message.content.startsWith(process.env.prefix) || message.author.bot) return;
 
