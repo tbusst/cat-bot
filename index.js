@@ -21,6 +21,9 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
+    //delete latter
+    if (message.channel.id == process.env.id) return;
+
     if (!message.content.startsWith(process.env.prefix) || message.author.bot) return;
 
     const args = message.content.slice(process.env.prefix.length).trim().split(/ +/);
