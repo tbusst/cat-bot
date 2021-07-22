@@ -7,10 +7,22 @@ module.exports = {
     args: false,
     execute(message) {
         let side;
+        let coinImg;
+        const flipEmbed = new Discord.MessageEmbed();
 
-        if (Math.random() > 0.5) side = 'Heads' 
-        else side = 'Tails'
+        if (Math.random() > 0.5) {
+            side = 'Heads';
+            coinImg = 'https://i.imgur.com/7f41vEK.png';
+        } else {
+            side = 'Tails';
+            coinImg = 'https://i.imgur.com/6t7JamY.png';
+        }
 
-        message.channel.send(`${message.author} Fliped a coin and got ${side}!`);
+        flipEmbed
+            .setTitle('Coin Flip')
+            .setDescription(`${message.author} Fliped a coin and got ${side}!`)
+            .setImage(coinImg)
+
+        message.channel.send(flipEmbed);
     }
 }
