@@ -7,7 +7,9 @@ module.exports = {
     usage: '<title> <message>',
     permissions: 'MANAGE_MESSAGES',
     execute(message, args) {
-        const echoEmbed = new Discord.MessageEmbed();
+        const echoEmbed = new Discord.MessageEmbed()
+            .setTimestamp()
+            .setFooter('Catbot', process.env.icon)
 
         switch (args.length) {
             case 1:

@@ -8,6 +8,7 @@ module.exports = {
     execute(message, args) {
         const mentions = message.mentions.users;
         const avatarEmbed = new Discord.MessageEmbed()
+            .setTitle('Avatar')
             .setTimestamp()
             .setFooter('Catbot', process.env.icon)
 

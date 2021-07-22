@@ -22,6 +22,8 @@ module.exports = {
             .setTitle('Coin Flip')
             .setDescription(`${message.author} Fliped a coin and got ${side}!`)
             .setImage(coinImg)
+            .setTimestamp()
+            .setFooter('Catbot', process.env.icon)
 
         message.channel.send(flipEmbed);
     }
