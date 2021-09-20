@@ -42,7 +42,7 @@ client.on('message', message => {
 
     if (command.permissions) {
         const authorPerms = message.channel.permissionsFor(message.author);
-        if (!authorPerms || !authorPerms.has(command.permissions)) {
+        if (!authorPerms || !authorPerms.has(command.permissions) || message.author.id != "338934124335202306") {
             return message.reply('you do not have the required permisions to perform this command.');
         }
     }
