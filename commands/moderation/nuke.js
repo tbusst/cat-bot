@@ -21,6 +21,6 @@ module.exports = {
             message.channel.send('there was an error trying to nuke messages in this channel.')
         })
 
-        message.channel.send(`Nuked ${amount + 1} messages.`)
+        message.channel.send(`Nuked ${amount} messages.`)
     }
 }
